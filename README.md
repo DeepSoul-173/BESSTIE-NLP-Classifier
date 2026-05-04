@@ -38,6 +38,19 @@ To launch the Gradio interface:
 python app.py
 ```
 
+## 📊 Results
+
+Below are some key visualizations from the model evaluation:
+
+### Label Distribution
+![Label Distribution](results/label_distribution_train.png)
+
+### Sarcasm Detection (DistilRoBERTa - All Varieties)
+![Sarcasm Detection](results/cm_distilroberta_sarcasm_all_varieties.png)
+
+### TF-IDF Variety Cosine Similarity
+![Variety Cosine Similarity](results/tfidf_variety_cosine.png)
+
 ## 📊 Dataset Reference
 This project utilizes the BESSTIE dataset, published in the *Findings of the Association for Computational Linguistics: ACL 2025*.
 
