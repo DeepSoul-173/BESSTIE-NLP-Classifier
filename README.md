@@ -40,16 +40,40 @@ python app.py
 
 ## 📊 Results
 
-Below are some key visualizations from the model evaluation:
+### Performance Metrics
+Below are the macro-averaged results for the baseline classical models:
 
-### Label Distribution
+| Model | Task | Macro F1 | Precision | Recall |
+|---|---|---|---|---|
+| **TF-IDF + Linear SVM** | Sentiment | **0.8407** | 0.8418 | 0.8404 |
+| **TF-IDF + Logistic Regression** | Sentiment | 0.8287 | 0.8300 | 0.8285 |
+| **TF-IDF + Logistic Regression** | Sarcasm | **0.6275** | 0.6143 | 0.6688 |
+| **TF-IDF + Linear SVM** | Sarcasm | 0.5932 | 0.6103 | 0.5838 |
+
+### Cross-Variety Sarcasm Transfer (Encoder Model)
+Evaluation of models trained on one variety and tested on others (Macro F1):
+
+| Train \ Test | en-AU | en-IN | en-UK |
+|---|---|---|---|
+| **en-AU** | **0.7594** | 0.5087 | 0.6044 |
+| **en-IN** | 0.4139 | **0.4822** | 0.4803 |
+| **en-UK** | 0.4139 | 0.4822 | **0.4803** |
+
+### Data Distribution
 ![Label Distribution](results/label_distribution_train.png)
 
-### Sarcasm Detection (DistilRoBERTa - All Varieties)
+### Sarcasm Detection Visualized
 ![Sarcasm Detection](results/cm_distilroberta_sarcasm_all_varieties.png)
 
-### TF-IDF Variety Cosine Similarity
-![Variety Cosine Similarity](results/tfidf_variety_cosine.png)
+## 📊 Dataset Summary
+| Split | Variety | Rows | Reddit | Google | Sentiment (+) Rate | Sarcasm Rate |
+|---|---|---|---|---|---|---|
+| **Train** | en-UK | 1203 | 434 | 769 | 51.37% | 7.65% |
+| **Train** | en-AU | 1145 | 756 | 389 | 44.72% | 29.43% |
+| **Train** | en-IN | 1399 | 683 | 716 | 50.75% | 6.79% |
+| **Test** | en-UK | 700 | 248 | 452 | 51.43% | 7.57% |
+| **Test** | en-AU | 667 | 423 | 244 | 47.98% | 29.39% |
+| **Test** | en-IN | 816 | 411 | 405 | 47.30% | 6.86% |
 
 ## 📊 Dataset Reference
 This project utilizes the BESSTIE dataset, published in the *Findings of the Association for Computational Linguistics: ACL 2025*.
